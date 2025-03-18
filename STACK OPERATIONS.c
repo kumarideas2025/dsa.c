@@ -14,7 +14,7 @@ int isempty(struct stack *ptr)
     }
     else
     {
-        return -1;
+        return 0;
     }
 }
 int isfull(struct stack *ptr)
@@ -53,7 +53,7 @@ int pop(struct stack *ptr)
         ptr->top--;
         return val;
     }
-}
+ }
 int peek(struct stack *sp, int i)
 {
     int arrayind= sp->top - i + 1;
@@ -99,13 +99,14 @@ int main()
     printf("after pushing ,full:%d\n", isfull(sp));
     printf(" after pushing ,empty:%d\n", isempty(sp));
     printf("popped %d from the stack\n", pop(sp)); // last in first out
-
+    printf("popped %d from the stack\n", pop(sp));
+    printf("popped %d from the stack\n", pop(sp));
     for (int j = 1; j <= sp->top + 1; j++)
     {
         printf("the value at the position %d is %d\n", j, peek(sp, j));
     }
-    printf("the top most value of this stack is %d\n", stacktop);
-    printf("the bottom value of this stack is %d\n",stackbottom);
+    printf("the top most value of this stack is %d\n", stacktop(sp));
+    printf("the bottom value of this stack is %d\n",stackbottom(sp));
 
     return 0;
 }
